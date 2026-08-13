@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CSC PAC Autofill</title>
+    <style>
+      body { font-family: Arial, sans-serif; width: 320px; padding: 12px; }
+      label { display:block; margin-top:8px; font-weight:600; font-size:13px; }
+      input[type="text"], input[type="password"] { width:100%; padding:8px; box-sizing:border-box; margin-top:4px; }
+      button { margin-top:12px; padding:8px 12px; width:100%; cursor:pointer; }
+      .small { font-size:12px; color:#666; margin-top:6px; }
+    </style>
+  </head>
+  <body>
+    <h3>CSC PAC Autofill</h3>
+
+    <label>Client Operator ID
+      <input id="clientId" type="text" placeholder="Client Operator ID">
+    </label>
+
+    <label>Customer
+      <input id="customer" type="text" placeholder="Customer">
+    </label>
+
+    <label>Wallet PIN
+      <input id="pin" type="password" placeholder="Wallet PIN (sensitive)">
+    </label>
+
+    <button id="applyBtn">Apply to open tab</button>
+    <button id="saveBtn" style="margin-top:6px;">Save values</button>
+    <button id="clearBtn" style="margin-top:6px;">Clear saved</button>
+
+    <hr style="margin-top:14px;">
+
+    <h4 style="margin-bottom:4px;">Auto-Generate</h4>
+    <label style="display:block; margin-top:0;">Number of codes
+      <input id="codeCount" type="number" min="1" max="100" value="5" style="width:100%; padding:8px; box-sizing:border-box; margin-top:4px;">
+    </label>
+    <button id="startAutoBtn">Start Auto-Generate</button>
+    <button id="stopAutoBtn" style="margin-top:6px;">Stop Auto-Generate</button>
+    <div class="small" id="autoStatus" style="font-weight:600;color:#0a7d1a;">Task: not running</div>
+    <div class="small">Fills the form, ticks the consent box, clicks <b>Pay 75</b>, waits for the response, then repeats. A panel on the page shows progress. Downloads the Excel automatically when all are done. Watch it — each code is a real ₹75 transaction.</div>
+
+    <hr style="margin-top:14px;">
+
+    <h4 style="margin-bottom:4px;">PAC Records: <span id="recordCount">0</span></h4>
+    <button id="exportBtn">Export to Excel (CSV)</button>
+    <button id="clearRecordsBtn" style="margin-top:6px;">Clear records</button>
+    <button id="scanBtn" style="margin-top:6px;">Scan page now</button>
+    <button id="testBtn" style="margin-top:6px;">Test page (diagnostics)</button>
+    <pre id="debugOut" class="small" style="display:none; white-space:pre-wrap; background:#f5f5f5; padding:6px; margin-top:8px;"></pre>
+    <div class="small">PAC numbers generated on the Digital Seva page are captured automatically and stored here. Click <b>Export to Excel</b> to download all of them with serial numbers. If nothing is captured, click <b>Scan page now</b> after generating a PAC and paste the output here.</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
