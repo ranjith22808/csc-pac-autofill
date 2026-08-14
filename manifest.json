@@ -32,6 +32,12 @@
   "background": {
     "service_worker": "background.js"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "csc-pac-autofill@ranjith22808.github.io",
+      "strict_min_version": "121.0"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["https://digitalseva.csc.gov.in/*"],
